@@ -1,14 +1,18 @@
 import matplotlib.pyplot as plt
 import csv
+import os
 
 x_vals = []
 y_vals = []
 
+base = os.path.dirname(__file__)
+output_path = os.path.join(base, "output.csv")
+
 # read the csv file
-with open('output.csv', newline='') as file:
+with open(output_path, newline="") as file:
     reader = csv.reader(file)
     for row in reader:
-        if row: 
+        if row:
             x, y = map(float, row)  # convert strings to floats
             x_vals.append(x)
             y_vals.append(y)
